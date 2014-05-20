@@ -182,8 +182,8 @@
     if (!isNaN(data.datetime)) {
       if ( $s.cutoff == 0 || Math.abs(distance(data.datetime)) < $s.cutoff) {
         $(this).text(inWords(data.datetime));
-      } else if ($s.fallback) {
-        $(this).text(data.datetime.toString());
+      } else if ($s.fallback && moment) {
+        $(this).text(moment(data.datetime).format($s.fallback));
       }
     }
     return this;
